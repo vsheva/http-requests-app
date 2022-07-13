@@ -22,10 +22,9 @@ function App() {
       }
 
       const data = await response.json();
-      console.log(data);
 
 
-     /* const transformedMovies = [];
+      const transformedMovies = [];
 
       for (const key in data) {
         transformedMovies.push({
@@ -35,28 +34,15 @@ function App() {
           openingText: data[key].openingText,
         });
       }
-*/
-      const transformedMovies = Object.entries(data).map(([key, value]) => {
+    /*  const transformedMovies = Object.entries(data).map(([key, value]) => {
           return {
               id: key,
               title: value.title,
               releaseDate: value.releaseDate,
               openingText: value.openingText,
           }
-      })
+      })*/
 
-
-
-
-
-      /*  const transformedMovies = data.results.map(movieData => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseDate: movieData.release_date,
-        };
-      });*/
       setMovies(transformedMovies);
     } catch (error) {
       setError(error.message);
@@ -83,20 +69,6 @@ function App() {
     const data = await response.json();
   }
 
-  /* let content = <p>Found no movies.</p>;
-
-     if (movies.length > 0) {
-         content = <MoviesList movies={movies} />;
-     }
-
-     if (error) {
-         content = <p>{error}</p>;
-     }
-
-     if (isLoading) {
-         content = <p>Loading...</p>;
-     }*/
-
   return (
     <React.Fragment>
       <section>
@@ -116,6 +88,23 @@ function App() {
 }
 
 export default App;
+
+
+/* let content = <p>Found no movies.</p>;
+
+    if (movies.length > 0) {
+        content = <MoviesList movies={movies} />;
+    }
+
+    if (error) {
+        content = <p>{error}</p>;
+    }
+
+    if (isLoading) {
+        content = <p>Loading...</p>;
+    }*/
+
+
 
 /*
 import React, {useState, useEffect, useCallback} from 'react';
